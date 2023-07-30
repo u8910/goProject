@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{.title}}</title>
+    <title>测试</title>
 </head>
 <body>
-<H1>fgkjdskjdsh{{.ce}}</H1>
+<div id="app">
+    <H1>{{message}}</H1>
+    {{user}}
+    <form action="/login" method="post" enctype="multipart/form-data">
+        用户名：<input type="text" name="user">
+        密码：<input type="password" name="psw">
+        <input type="submit" value="提交" name="submit">
+    </form>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    const { createApp, ref } = Vue
+
+    createApp({
+        setup() {
+            const message = ref('Hello vue!')
+            const user = ref('user')
+            return {
+                message,
+                user
+            }
+        }
+    }).mount('#app')
+</script>
 </body>
 </html>
